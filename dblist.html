@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script>
+        //데이터베이스는 최상위에 작성한다.
+        // const daynm = [
+        //     ["프론트앤드", "노드"]
+        //     , ["웹디자이너", "인스타그램광고배너"]
+        //     , ["웹퍼블리셔", "쇼핑몰제작"]
+        //     , ["컨텐츠디자이너", "컨셉설정 및 진행"]
+        //     , ["마케팅디자이너", "SNS광고 및 SEO최적화"]
+        // ]
+
+        var daynm = [
+            ["제품성분", "#component", "list component", "a-component"]
+            , ["사용후기", "review", "list review", "a-review"]
+            , ["캠페인", "#campaign", "list campaign", "a-campaign"]
+            , ["상담하기", "#qa", "list qa", "a-qa"]
+        ]
+
+        $(document).ready(function () {
+            let content = ``;
+            for (c in daynm) {
+                content += `<li class="${daynm[c][2]}">
+                                <a class="${daynm[c][3]}" href=${daynm[c][1]}>${daynm[c][0]}</a>
+                            </li>`;
+            }
+
+
+            $("ul#gnb").html(content);
+            console.log(content)
+        })
+
+
+// 1. 저는 "컨셉설정 및 진행"업무를 맡은 "컨텐츠디자이너"입니다.
+// `저는 ${daynm[3][1]}업무를 맡은 ${daynm[3][0]}입니다.`
+
+// 2. 이번 신입은 "마케팅디자이너"라서 "SNS광고 및 SEO최적화"업무를 할꺼야
+// `이번 신입은 ${daynm[4][0]라서 ${daynm[4][1]업무를 할꺼야`
+
+//  3. 이번 프로젝트는 "쇼핑몰제작"이라서 "웹 퍼블리셔가 필요한데
+//  `이번 프로젝트는 ${daynm[2][1]}이라서 ${daynm[4][1]}가 필요한데`
+
+// 4. "노드"업무를 맡을 "프론트엔드"개발자가 필요해
+// `${daynm[0][1]업무를 맡을 ${daynm[0][0]개발자가 필요해`
+
+
+
+    </script>
+</head>
+
+<body>
+    <ul id="gnb">
+    </ul>
+</body>
+
+</html>

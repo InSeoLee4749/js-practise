@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script>
+        //화면이 열리면 실행하는것
+        $(document).ready(function () {
+            let listDB = ["메뉴1", "메뉴2", "메뉴3", "메뉴4"] //변수 listDB의 데이터타입은 정렬이다.
+            let listDBHref = ["#section1", "#section2", "#event", "#form"]
+            // $("body").html("<ul><li>dddd</li></ul>")  html은 초기화하고 들어간다.
+            // $("body").html("<ul><li>네이버</li></ul><ul><li>다음</li></ul><ul><li>구글</li></ul>")
+
+            //  $("body").html("<ul><li>" + listDB[0] + "</li><li>" + listDB[1] + "</li><li>" + listDB[2] + "</li></ul>") ->이와 같은 방법은 보기 힘듬 , 그래서 에크마6이용
+
+            // $("body").html(``) -> 에크마6 표현법
+            // $("body").html(`<ul>
+            //             <li>${listDB[0]}</li>
+            //             <li>${listDB[1]}</li>
+            //             <li>${listDB[2]}</li>
+            // </ul>`)
+
+            // var에서 let으로 변경하고, let listtag 사용
+            // let listtag = `
+            //             <li>${listDB[0]}</li>
+            //             <li>${listDB[1]}</li>
+            //             <li>${listDB[2]}</li>
+            // `
+
+            let listtag = `` //li 태그 저장할 변수
+            for (i in listDB) { //li 차곡차곡 쌓기
+                // listtag += `<li>${listDB[i]}</li>` // 같은의미 listtag += "<li>"+listDB[i]+"</li>"
+
+                listtag += `<li><a href="${listDBHref[i]}">${listDB[i]}</a></li>`
+
+            }
+
+            $("#gnb").html(listtag) //출력하기
+            $("#gnb li").eq(0).addClass('bbb')
+            $("#gnb li").eq(-1).html('마지막')
+
+
+
+        })//// ready -> ready 구역이 여기까지이다. 라고 개발자사이에서 사용함
+    </script>
+</head>
+
+<body>
+    <!-- ul#gnb>li.list$*3>a{메뉴} -->
+
+    <header id="hd">
+        <ul id="gnb"></ul>
+    </header>
+</body>
+
+</html>
